@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CATC Enrollment Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f7f7f7;
+    }
+    
+    .form-container {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    
+    .form-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+    
+    .form-group {
+      margin-bottom: 20px;
+    }
+    
+    .form-group label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: #555;
+    }
+    
+    .form-group input {
+      width: 100%;
+      padding: 8px;
+      border-radius: 3px;
+      border: 1px solid #ccc;
+      transition: border-color 0.3s ease;
+    }
+    
+    .form-group input:focus {
+      outline: none;
+      border-color: #4CAF50;
+    }
+    
+    .form-group button {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+    
+    .form-group button:hover {
+      background-color: #45a049;
+    }
+  </style>
+  <script>
+    function validateForm() {
+      var contactno = document.getElementById("contactno").value;
+      var yearinncc = document.getElementById("yearinncc").value;
+      
+      // Validate contact number length
+      if (contactno.length !== 10) {
+        alert("Contact number should be 10 digits.");
+        return false;
+      }
+      
+      // Validate year in NCC
+      if (yearinncc < 1 || yearinncc > 3) {
+        alert("Year in NCC should be between 1 and 3.");
+        return false;
+      }
+    }
+  </script>
+</head>
+<body>
+  <div class="form-container">
+    <h2>CATC Enrollment Form</h2>
+    <form action="submit.php" method="post" onsubmit="return validateForm()">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div class="form-group">
+        <label for="rollno">Roll No.:</label>
+        <input type="text" id="rollno" name="rollno" required>
+      </div>
+      <div class="form-group">
+        <label for="regimentalno">Regimental No.:</label>
+        <input type="text" id="regimentalno" name="regimentalno" required>
+      </div>
+      <div class="form-group">
+        <label for="contactno">Contact No.:</label>
+        <input type="text" id="contactno" name="contactno" required>
+      </div>
+      <div class="form-group">
+        <label for="yearinncc">Year in NCC:</label>
+        <input type="text" id="yearinncc" name="yearinncc" required>
+      </div>
+      <div class="form-group">
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
+
